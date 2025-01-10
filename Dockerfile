@@ -1,8 +1,8 @@
 FROM ubuntu:24.04
 
 RUN mkdir -p /ros2_ws/src/ros2_uv_template
-WORKDIR /ros2_ws
-COPY ./ /ros2_ws/src/ros2_uv_template
+WORKDIR /ros2_ws/src/ros2_uv_template
+COPY ./ ./
 
 # Setup dependencies
 ARG DEBIAN_FRONTEND=noninteractive
@@ -37,9 +37,9 @@ RUN add-apt-repository universe \
 
 # Setup uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-ENV UV_PROJECT_ENVIRONMENT="/usr/"
-ENV UV_LINK_MODE=copy
-RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
+&& make venv
 
-
+# Console setup
+WORKDIR /ros2_ws
 CMD [ "/usr/bin/bash" ]
