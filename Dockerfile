@@ -1,5 +1,4 @@
 FROM ubuntu:24.04
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 RUN mkdir -p /ros2_ws/src/ros2_uv_template
 WORKDIR /ros2_ws
@@ -34,7 +33,12 @@ RUN add-apt-repository universe \
     ros-jazzy-ros-base \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* \
-&& echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc \
-&& echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+&& echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
+
+# Setup uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+ENV UV_PROJECT_ENVIRONMENT=/usr
+RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+
 
 CMD [ "/usr/bin/bash" ]
