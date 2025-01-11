@@ -23,9 +23,13 @@ fi
 
 # Detect OS and set sed command
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    SED_CMD="sed -i ''"
+    replace_in_file() {
+        sed -i '' "s/$1/$2/g" "$3"
+    }
 else
-    SED_CMD="sed -i"
+    replace_in_file() {
+        sed -i "s/$1/$2/g" "$3"
+    }
 fi
 
 echo "Renaming project from '$OLD_NAME' to '$NEW_NAME'"
@@ -47,7 +51,7 @@ replace_in_files() {
     for file in "${file_list[@]}"; do
         if [ -f "$file" ]; then
             echo "Updating $file"
-            $SED_CMD "s/$old/$new/g" "$file"
+            replace_in_file "$old" "$new" "$file"
         fi
     done
 }
@@ -71,7 +75,7 @@ replace_in_files "$OLD_NAME" "$NEW_NAME"
 OLD_NAME_HYPHEN=$(echo "$OLD_NAME" | tr '_' '-')
 NEW_NAME_HYPHEN=$(echo "$NEW_NAME" | tr '_' '-')
 if [ -f "pyproject.toml" ]; then
-    $SED_CMD "s/$OLD_NAME_HYPHEN/$NEW_NAME_HYPHEN/g" "pyproject.toml"
+    replace_in_file "$OLD_NAME_HYPHEN" "$NEW_NAME_HYPHEN" "pyproject.toml"
 fi
 
 # 3. Rename directories
