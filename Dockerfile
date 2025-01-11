@@ -44,8 +44,6 @@ ENV UV_LINK_MODE=copy
 RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
 && make venv
 
-# Build ros package
-WORKDIR /ros2_ws
-
 # Console setup
+WORKDIR /ros2_ws
 CMD [ "bash" ]
