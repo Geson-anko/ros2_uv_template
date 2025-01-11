@@ -21,7 +21,7 @@ prepare-scripts: ## Add executable permission to scripts and ensure shebang exis
 		chmod +x $$script; \
 		if ! grep -q '^#!' $$script; then \
 			echo "Adding shebang to $$script"; \
-			sed -i '1i#!/usr/bin/python3' $$script; \
+			sed -i '1i#!/usr/bin/env python3' $$script; \
 		fi \
 	done
 
