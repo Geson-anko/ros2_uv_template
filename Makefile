@@ -15,8 +15,8 @@ venv: ## Makes the venv with system site packages
 install: ## Installs the workspace to the system package.
 	uv pip install -e .
 
-prepare-scripts: ## Add executable permission to scripts and ensure shebang exists
-	@echo "Preparing script files..."
+scripts-executable: ## Add executable permission to scripts and ensure shebang exists
+	@echo "Preparing script files to executable..."
 	@for script in $$(find scripts -type f -name "*.py"); do \
 		chmod +x $$script; \
 		if ! grep -q '^#!' $$script; then \
