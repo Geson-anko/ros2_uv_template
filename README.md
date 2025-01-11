@@ -56,6 +56,7 @@ ros2 run your_project_name subscriber.py
 ## Project Structure
 
 ```
+.
 ├── CMakeLists.txt          # ROS build configuration
 ├── package.xml             # ROS package definition
 ├── pyproject.toml          # Python project settings
