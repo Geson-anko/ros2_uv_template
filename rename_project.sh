@@ -47,7 +47,7 @@ replace_in_files() {
         "scripts/publisher.py"
         "scripts/subscriber.py"
     )
-    
+
     for file in "${file_list[@]}"; do
         if [ -f "$file" ]; then
             echo "Updating $file"
@@ -60,7 +60,7 @@ replace_in_files() {
 rename_directories() {
     local old="$1"
     local new="$2"
-    
+
     if [ -d "src/$old" ]; then
         echo "Renaming directory src/$old to src/$new"
         mv "src/$old" "src/$new"
