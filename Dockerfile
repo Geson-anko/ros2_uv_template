@@ -33,7 +33,10 @@ RUN add-apt-repository universe \
     ros-jazzy-ros-base \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* \
-&& echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
+&& echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc \
+&& echo 'if [ -f /ros2_ws/install/setup.bash ]; then \
+source /ros2_ws/install/setup.bash; \
+fi' >> ~/.bashrc
 
 # Setup uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
@@ -43,4 +46,4 @@ RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
 
 # Console setup
 WORKDIR /ros2_ws
-CMD [ "/usr/bin/bash" ]
+CMD [ "bash" ]
