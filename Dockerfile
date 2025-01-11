@@ -46,7 +46,6 @@ RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
 
 # Build ros package
 WORKDIR /ros2_ws
-RUN colcon build --symlink-install
 
 # Console setup
 CMD [ "bash" ]
