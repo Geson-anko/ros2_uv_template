@@ -69,8 +69,6 @@ ros2 run your_project_name subscriber.py
 
 ## Main Commands
 
-Execute in `src/your_project_name`
-
 ```bash
 # Create virtual environment
 make venv
@@ -84,10 +82,14 @@ make format
 
 ## Customization Guide
 
-1. Update dependencies in `pyproject.toml`
-2. Add ROS package dependencies in `package.xml`
-3. Modify build settings in `CMakeLists.txt`
-4. Add new nodes in `scripts/`
+1. rename your project by `rename_project.sh`
+   ```sh
+   ./rename_project.sh your_project_name
+   ```
+2. Update dependencies in `pyproject.toml`
+3. Add ROS package dependencies in `package.xml`
+4. Modify build settings in `CMakeLists.txt`
+5. Add new nodes in `scripts/`
 
 ## Managing Python Dependencies
 
