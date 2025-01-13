@@ -64,8 +64,9 @@ ros2 run your_project_name subscriber.py
 ├── scripts/                # Executable scripts
 │   ├── publisher.py         # Publisher node
 │   └── subscriber.py        # Subscriber node
-└── src/                    # Source code
-    └── your_project_name/   # Python package
+├── src/                    # Source code
+│   └── your_project_name/   # Python package
+└── tests/                  # Test code
 ```
 
 ## Main Commands
@@ -79,6 +80,9 @@ make scripts-executable
 
 # Run code formatting
 make format
+
+# Run pytest
+make test
 ```
 
 ## Customization Guide
