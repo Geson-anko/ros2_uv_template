@@ -43,12 +43,16 @@ docker compose build --no-cache
 docker compose up -d
 docker compose exec dev bash
 
-# Build the package
+# Build the package (via script.)
+./build.sh
+
+# Or manual build
+cd ../../
 colcon build --symlink-install
 source ./install/setup.sh
+cd src/your_project_name
 
 # Run the nodes
-cd ./src/your_project_name/
 source .venv/bin/activate
 ros2 run your_project_name publisher.py
 ros2 run your_project_name subscriber.py
@@ -83,6 +87,9 @@ make format
 
 # Run pytest
 make test
+
+# Build the package
+./build.sh
 ```
 
 ## Customization Guide
