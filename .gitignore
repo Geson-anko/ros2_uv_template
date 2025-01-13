@@ -1,3 +1,5 @@
+.ruff_cache
+
 # macOS
 .DS_Store
 
