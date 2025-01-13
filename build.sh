@@ -22,6 +22,7 @@ colcon_build() {
 
     # Source the setup file
     if [ -f "./install/setup.sh" ]; then
+    echo "Running setup.sh ..."
         source ./install/setup.sh
     fi
 
