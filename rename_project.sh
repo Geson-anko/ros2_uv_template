@@ -10,10 +10,19 @@ usage() {
     exit 1
 }
 
+# Check for help option
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    usage
+    exit 0
+fi
+
 # Check arguments
 if [ "$#" -gt 2 ]; then
-    usage
+    echo "Error: Too many arguments"
+    echo "Try '$0 --help' for more information."
+    exit 1
 fi
+
 
 NEW_NAME="${1:-$DEFAULT_NEW_NAME}"
 OLD_NAME="${2:-ros2_uv_template}"
