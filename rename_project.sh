@@ -46,6 +46,8 @@ replace_in_files() {
         "pyproject.toml"
         "scripts/publisher.py"
         "scripts/subscriber.py"
+        "tests/test_publisher.py"
+        "tests/test_subscriber.py"
     )
 
     for file in "${file_list[@]}"; do
