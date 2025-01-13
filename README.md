@@ -28,10 +28,9 @@ A template project for managing ROS2 packages with uv 🚀
 ```bash
 # Clone the repository
 git clone https://github.com/your-user-name/your_project_name.git
-cd your_project_name
 
-# Rename the project
-./rename_project.sh your_project_name
+# Renaming the project (default is your repository name.)
+./rename_project.sh
 
 # Build and start Docker container
 make docker-build
