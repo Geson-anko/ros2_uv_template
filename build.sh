@@ -22,8 +22,9 @@ colcon_build() {
 
     # Source the setup file
     if [ -f "./install/setup.sh" ]; then
-    echo "Running setup.sh ..."
-        source ./install/setup.sh
+        echo -e "\n\033[1;32mBuild completed successfully!\033[0m"
+        echo -e "\033[1;33mTo load the environment, please run:\033[0m"
+        echo -e "\033[1;36msource $ROS2_WS/install/setup.sh\033[0m\n"
     fi
 
     # Return to original directory
