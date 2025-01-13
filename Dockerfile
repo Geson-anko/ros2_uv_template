@@ -26,5 +26,4 @@ RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc \
 && make venv
 
 # Console setup
-WORKDIR /ros2_ws
 CMD [ "bash" ]
