@@ -12,6 +12,7 @@ python-preference = "only-system"
 [dependency-groups]
 dev = [
     "pre-commit>=4.0.1",
+    "pytest>=8.3.4",
 ]
 
 
@@ -76,3 +77,20 @@ skip-magic-trailing-comma = false
 
 # Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
+
+
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--durations=0",
+  "--strict-markers",
+  "--doctest-modules",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::UserWarning",
+]
+log_cli = "True"
+
+minversion = "6.0"
+testpaths = "tests/"
