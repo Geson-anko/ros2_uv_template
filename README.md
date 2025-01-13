@@ -43,14 +43,11 @@ docker compose build --no-cache
 docker compose up -d
 docker compose exec dev bash
 
+# Create virtual env
+make venv
+
 # Build the package (via script.)
 ./build.sh
-
-# Or manual build
-cd ../../
-colcon build --symlink-install
-source ./install/setup.sh
-cd src/your_project_name
 
 # Run the nodes
 source .venv/bin/activate
