@@ -48,7 +48,8 @@ colcon build --symlink-install
 source ./install/setup.sh
 
 # Run the nodes
-source ./src/your_project_name/.venv/bin/activate
+cd ./src/your_project_name/
+source .venv/bin/activate
 ros2 run your_project_name publisher.py
 ros2 run your_project_name subscriber.py
 ```
