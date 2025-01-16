@@ -150,7 +150,7 @@ wheels = [
 
 [[package]]
 name = "ros2-uv-template"
-version = "0.1.0"
+version = "0.0.0"
 source = { virtual = "." }
 
 [package.dev-dependencies]
